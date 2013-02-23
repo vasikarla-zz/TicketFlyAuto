@@ -184,7 +184,7 @@ public class CommonUtils {
 	 * @param tcID
 	 * @return
 	 */
-	public static String getHostOperatingSystem(String tcID) {
+	public static String getHostOperatingSystem() {
 		String osName = System.getProperty("os.name");
 		logger.info("Current Host Operating System is identified as " + osName);
 		return osName;

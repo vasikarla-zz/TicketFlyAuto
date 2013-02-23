@@ -197,8 +197,17 @@ public class BrowserFactory {
 
 		else {
 			log.info("loading Generic Chrome driver");
-			System.setProperty("webdriver.chrome.driver",
-					"src/main/resources/browser_exe/chrome/chromedriver");
+
+			String hostOS = CommonUtils.getHostOperatingSystem();
+			System.out.println("Host OS : " + hostOS);
+
+			if (hostOS.equalsIgnoreCase("Mac OS X")) {
+				System.setProperty("webdriver.chrome.driver",
+						"src/main/resources/browser_exe/chrome/chromedriver");
+			} else {
+				System.setProperty("webdriver.chrome.driver",
+						"src/main/resources/browser_exe/chrome/chromedriver.exe");
+			}
 			remoteDriver = new ChromeDriver();
 			log.info("loading Generic Chrome driver successful");
 		}
