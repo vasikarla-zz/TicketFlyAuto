@@ -78,7 +78,7 @@ public class BaseTestCase extends Assert {
 	 * 
 	 * @throws Exception
 	 */
-	//@AfterSuite(alwaysRun = true)
+	@AfterSuite(alwaysRun = true)
 	public void resetAndCloseBrowser() {
 		try {
 			log.info(" Qutting the browser ");
