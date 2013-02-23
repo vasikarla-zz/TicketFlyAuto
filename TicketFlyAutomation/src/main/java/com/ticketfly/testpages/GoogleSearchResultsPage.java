@@ -1,6 +1,7 @@
 package com.ticketfly.testpages;
 
 import org.apache.log4j.Logger;
+import org.testng.Assert;
 
 import com.ticketfly.base.Browser;
 
@@ -17,15 +18,18 @@ public class GoogleSearchResultsPage {
 	 * @return
 	 * @return
 	 */
-	public void selectFromSearchResults(int Result) {
+	public boolean selectFromSearchResults(int Result) {
 		String selectSearchRes = null;
 		if (Result <= 1) {
 			log.info("Selecting Search Result No :" + Result);
 			selectSearchRes = "xpath=//*[@id=\"rso\"]/li[" + Result
 					+ "]/div/h3/a/em";
 			Browser.click(selectSearchRes);
+			return true;
 		}else {
 			log.error("Input should be Greater than or equal to 1");
+			Assert.fail("Input should be Greater than or equal to 1");
+			return false;
 		}
 	}
 }

@@ -1,6 +1,7 @@
 package com.ticketfly.testpages;
 
 import org.apache.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 import com.ticketfly.base.Browser;
@@ -15,15 +16,18 @@ public class TicketFlyHomePage {
 	 * @param event
 	 * @throws Exception
 	 */
-	public void findEvent(String event) throws Exception {
+	public boolean findEvent(String event) throws Exception {
 		log.info("Entering findEvent Method with Input : " + event);
 		if ((!event.equals("")) && (!event.equals(null))) {
-			Browser.waitForPageElementToLoad("xpath=//*[@id=\"q\"]");
-			Browser.sendKeys("xpath=//*[@id=\"q\"]", event);
+			Browser.wait("3000");
+			Browser.sendKeys("css=#q", event);
 			Browser.click("xpath=html/body/div[3]/div/form/fieldset/ol/button");
 			log.info("Searching for the event :" + event);
+			return true;
 		} else {
 			log.info("Event cannot be NULL or Empty...");
+			Assert.fail("Event cannot be NULL or Empty...");
+			return false;
 		}
 
 	}

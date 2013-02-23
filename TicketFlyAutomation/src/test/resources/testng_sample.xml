@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <suite configfailurepolicy="skip" data-provider-thread-count="1"
 	group-by-instances="false" junit="false" name="SelNG Test" parallel="false"
-	skipfailedinvocationcounts="false" thread-count="5">
+	skipfailedinvocationcounts="false" thread-count="1">
 
 	<test name="TicketFly Sample Test Case">
 		<classes>
-			<class name="com.ticketfly.tests.smokes.SampleSmokeSuite">
+			<class name="com.ticketfly.tests.smokes.TicketFlySampleTestCase">
 			</class>
 		</classes>
 	</test>
