@@ -1,0 +1,9 @@
+<TestData Region="US">
+	<BYSearch>
+			<SearchText>This is Test</SearchText>
+	</BYSearch>
+	<BYNavigate>
+			<bypassword>!psworD123</bypassword>	
+			<byTest><![CDATA[xpath=//*[@raj='/']]]></byTest>			
+	</BYNavigate>	
+</TestData>

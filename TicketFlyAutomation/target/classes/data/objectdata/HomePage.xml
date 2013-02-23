@@ -1,0 +1,12 @@
+<pages>
+	<page name='HomePage'>
+		<uiobject name="Logout" type="link">
+			<locator>xpath=id('userNav-menuItems')/x:a[4]</locator>
+		</uiobject>
+		<uiobject name="User" type="link">
+			<locator>xpath=.//*[@id='userNavLabel']</locator>
+		</uiobject>
+	</page>
+</pages>
+
+
