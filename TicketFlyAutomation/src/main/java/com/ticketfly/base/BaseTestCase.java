@@ -89,14 +89,4 @@ public class BaseTestCase {
 					+ e.getMessage());
 		}
 	}
-
-	/**
-	 * Place holder for any invocations after the test suite.
-	 * 
-	 * @throws Exception
-	 */
-	public void finalTestReport() throws Exception {
-
-	}
-
 }

@@ -7,18 +7,13 @@ import static com.ticketfly.base.TestConstants.LONG_WAIT;
 import static com.ticketfly.base.TestConstants.SELECT_BY_INDEX;
 import static com.ticketfly.base.TestConstants.SELECT_BY_VALUE;
 import static com.ticketfly.base.TestConstants.SELECT_BY_VISIBLE_TEXT;
-import static com.ticketfly.base.TestConstants.SELECT_INFO_TYPE_ALL_SELECTED_OPTIONS;
-import static com.ticketfly.base.TestConstants.SELECT_INFO_TYPE_FIRST_SELECTED_OPTION;
-import static com.ticketfly.base.TestConstants.SELECT_INFO_TYPE_OPTIONS;
 import static com.ticketfly.base.TestConstants.WAIT_SLEEP;
 import static org.openqa.selenium.OutputType.FILE;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -1146,46 +1141,4 @@ public class Browser {
 					}
 				});
 	}
-
-	/**
-	 * Gets specified select info
-	 * 
-	 * @param selectElementLocator
-	 *            select element locator
-	 * @param selectInfoType
-	 *            OPTIONS : returns All options belonging to this select tag,
-	 *            FIRST_SELECTED_OPTION: the first selected option in the select
-	 *            tag (or the currently selected option in a normal select),
-	 *            ALL_SELECTED_OPTIONS: All selected options belonging to this
-	 *            select tag
-	 * @return requested select info
-	 */
-	public static LinkedList<String> getSelectSnapshot(
-			String selectElementLocator, String selectInfoType) {
-		Select select = new Select(findTheElement(selectElementLocator));
-		LinkedList<String> selectInfoMap = new LinkedList<String>();
-
-		List<WebElement> selectInfoElements = null;
-		if (SELECT_INFO_TYPE_OPTIONS.equals(selectInfoType)) {
-			selectInfoElements = select.getOptions();
-		} else if (SELECT_INFO_TYPE_ALL_SELECTED_OPTIONS.equals(selectInfoType)) {
-			selectInfoElements = select.getAllSelectedOptions();
-		} else if (SELECT_INFO_TYPE_FIRST_SELECTED_OPTION
-				.equals(selectInfoType)) {
-			WebElement firstSelectedOption = select.getFirstSelectedOption();
-			if (firstSelectedOption != null) {
-				selectInfoElements = new ArrayList<WebElement>();
-				selectInfoElements.add(firstSelectedOption);
-			}
-		}
-
-		if (selectInfoElements != null) {
-			for (WebElement element : selectInfoElements) {
-				selectInfoMap.add(element.getText());
-			}
-		}
-
-		return selectInfoMap;
-	}
-
 }

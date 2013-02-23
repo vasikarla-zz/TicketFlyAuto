@@ -3,7 +3,7 @@
 	group-by-instances="false" junit="false" name="SelNG Test" parallel="false"
 	skipfailedinvocationcounts="false" thread-count="5">
 
-	<test name="Sample Framework Test">
+	<test name="TicketFly Sample Test Case">
 		<classes>
 			<class name="com.ticketfly.tests.smokes.SampleSmokeSuite">
 			</class>
