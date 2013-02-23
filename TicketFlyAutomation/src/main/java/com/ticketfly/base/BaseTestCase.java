@@ -3,6 +3,7 @@ package com.ticketfly.base;
 import java.lang.reflect.Method;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
@@ -19,6 +20,7 @@ import com.ticketfly.test.framework.utils.CommonUtils;
 public class BaseTestCase {
 
 	public static Logger log = Logger.getLogger(BaseTestCase.class);
+	private static WebDriver browser = BrowserFactory.getBrowser();
 
 	/**
 	 * Place holder for any invocations before the test suite.
@@ -38,38 +40,8 @@ public class BaseTestCase {
 	public void launchBaseURL() throws Exception {
 		String url = CommonUtils.readFromConfig("BaseURL");
 		log.info(" Launching Browser  " + url);
-		Browser.go(url);
+		browser.get(url);
 		log.info(" Launched Browser successfully  " + url);
-	}
-
-	/**
-	 * Takes the screenshot after execution of TestMethod. Screen shots base
-	 * path will be read from config name
-	 * 
-	 * @throws Exception
-	 */
-	@AfterMethod
-	public void takeScreenShot(Method methodName) {
-		try {
-			log.info(" capturing screenshot " + methodName);
-			if (methodName != null) {
-
-				String path = CommonUtils.readFromConfig("screenshotpath")
-						+ "TC_"
-						+ methodName.getName().toString()+ "/"
-						+ methodName.getName();
-				Browser.captureScreenShot(CommonUtils.currentDateFileName(path)
-						+ ".jpeg");
-
-				log.info(" capturing screenshot methodName"
-						+ methodName.getName());
-			}
-
-		} catch (Exception e) {
-			log.error(" capturing screenshot exception " + e.getMessage());
-		}
-
-		log.info(" capturing screenshot successfully ");
 	}
 
 	/**
@@ -82,7 +54,7 @@ public class BaseTestCase {
 	public void resetAndCloseBrowser() {
 		try {
 			log.info(" Qutting the browser ");
-			Browser.quit();
+			browser.quit();
 			log.info(" Qutting the browser successful");
 		} catch (Exception e) {
 			log.error("Exception in resetAndCloseBrowser function"

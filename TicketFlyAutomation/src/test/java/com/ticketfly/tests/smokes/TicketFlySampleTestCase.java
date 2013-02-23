@@ -1,10 +1,11 @@
 package com.ticketfly.tests.smokes;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.ticketfly.base.BaseTestCase;
-import com.ticketfly.base.Browser;
+import com.ticketfly.base.BrowserFactory;
 import com.ticketfly.testpages.GoogleHomePage;
 import com.ticketfly.testpages.GoogleSearchResultsPage;
 import com.ticketfly.testpages.TicketFlyDeliveryPage;
@@ -15,7 +16,7 @@ import com.ticketfly.testpages.TicketFlyPurchasePage;
 import com.ticketfly.testpages.TicketFlySearchResultsPage;
 
 public class TicketFlySampleTestCase extends BaseTestCase {
-
+	private static WebDriver browser = BrowserFactory.getBrowser();
 	public static GoogleHomePage googleHomePage = new GoogleHomePage();
 	public static GoogleSearchResultsPage googleSearchResultsPage = new GoogleSearchResultsPage();
 	public static TicketFlyHomePage ticketflyHomePage = new TicketFlyHomePage();
@@ -36,7 +37,7 @@ public class TicketFlySampleTestCase extends BaseTestCase {
 	}
 
 	@Test(dependsOnMethods="launchGoogleAndSearch")
-	public void selectFromSearchResults() {
+	public void selectFromSearchResults() throws InterruptedException {
 		Assert.assertTrue(googleSearchResultsPage.selectFromSearchResults(1),
 				"Failed to Select from Search Results...");
 	}
@@ -58,7 +59,7 @@ public class TicketFlySampleTestCase extends BaseTestCase {
 	}
 
 	@Test(dependsOnMethods="selectEventFromSearchResults")
-	public void selectRandomTickets() {
+	public void selectRandomTickets() throws InterruptedException {
 		Assert.assertTrue(ticketflyPurchasePage.selectRandomTickets(),
 				"Unabled to Select Random Tickets...");
 	}
@@ -76,10 +77,8 @@ public class TicketFlySampleTestCase extends BaseTestCase {
 	}
 
 	@Test(dependsOnMethods="performCheckout")
-	public void verifyPaymentsPage() {
-		Browser.wait("3000");
-		Assert.assertEquals(Browser.getCurrentUrl(),
-				"https://www.ticketfly.com/purchase/payment",
-				"Page URL mismatch.");
+	public void verifyPaymentsPage() throws InterruptedException {
+		Assert.assertTrue(ticketflyPaymentsPage.verifyPaymentsPage(),
+				"Unable to Verify Payments Page...");
 	}
 }
