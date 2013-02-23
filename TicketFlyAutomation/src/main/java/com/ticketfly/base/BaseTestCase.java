@@ -16,7 +16,7 @@ import com.ticketfly.test.framework.utils.CommonUtils;
  * methods using testng annotations that perform operations
  * beforesuite,aftersuite,beforetest,aftertest etc.
  */
-public class BaseTestCase extends Assert {
+public class BaseTestCase {
 
 	public static Logger log = Logger.getLogger(BaseTestCase.class);
 
