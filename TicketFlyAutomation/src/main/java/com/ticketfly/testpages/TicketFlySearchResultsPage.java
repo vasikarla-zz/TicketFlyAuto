@@ -17,12 +17,5 @@ public class TicketFlySearchResultsPage {
 
 	public void selectEvent() {
 		Browser.click("xpath=.//*[@id='post-7']/div[1]/div/ul/li[3]/div[3]/span/a");
-		/*
-	
-		for (int i = 1; i <= getSearchResultsCount(); i++) {
-			System.out.println("i" + i);
-			System.out.println("Day :" + Browser.getText("xpath=.//*[@id='post-7']/div[1]/div/ul/li["+ i +"]/div[1]"));
-			System.out.println("Show Time :" + Browser.getText("xpath=.//*[@id='post-7']/div[1]/div/ul/li["+ i +"]/div[3]/p[2]"));
-		}
-	*/}
+	}
 }
