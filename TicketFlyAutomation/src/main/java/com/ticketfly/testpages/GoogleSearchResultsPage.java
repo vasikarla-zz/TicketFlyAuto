@@ -14,13 +14,18 @@ public class GoogleSearchResultsPage {
 	 * is selected.
 	 * 
 	 * @param Result
-	 * @return 
+	 * @return
 	 * @return
 	 */
 	public void selectFromSearchResults(int Result) {
-		String selectSearchRes = "xpath=//*[@id=\"rso\"]/li[" + Result + "]/div/h3/a/em";
-		Browser.click(selectSearchRes);
+		String selectSearchRes = null;
+		if (Result <= 1) {
+			log.info("Selecting Search Result No :" + Result);
+			selectSearchRes = "xpath=//*[@id=\"rso\"]/li[" + Result
+					+ "]/div/h3/a/em";
+			Browser.click(selectSearchRes);
+		}else {
+			log.error("Input should be Greater than or equal to 1");
+		}
 	}
 }
-
-

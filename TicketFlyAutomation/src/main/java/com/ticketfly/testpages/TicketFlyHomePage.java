@@ -11,15 +11,21 @@ public class TicketFlyHomePage {
 
 	/**
 	 * Method to find an event in the Ticketfly main page.
+	 * 
 	 * @param event
 	 * @throws Exception
 	 */
 	public void findEvent(String event) throws Exception {
-		Browser.click("xpath=html/body/div[3]/div/h2/span/a");
-		WebElement el = Browser.findTheElement("xpath=//*[@id=\"q\"]");
-		System.out.println("#########" + el.toString());
-		Browser.sendKeys("xpath=//*[@id=\"q\"]", event);
-		Browser.click("xpath=html/body/div[3]/div/form/fieldset/ol/button");
+		log.info("Entering findEvent Method with Input : " + event);
+		if ((!event.equals("")) && (!event.equals(null))) {
+			Browser.waitForPageElementToLoad("xpath=//*[@id=\"q\"]");
+			Browser.sendKeys("xpath=//*[@id=\"q\"]", event);
+			Browser.click("xpath=html/body/div[3]/div/form/fieldset/ol/button");
+			log.info("Searching for the event :" + event);
+		} else {
+			log.info("Event cannot be NULL or Empty...");
+		}
+
 	}
 
 }

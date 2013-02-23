@@ -4,9 +4,13 @@ import com.ticketfly.base.Browser;
 
 public class TicketFlyOffersPage {
 
+	/**
+	 * Method to perform Checkout
+	 * @throws Exception
+	 */
 	public void doCheckout() throws Exception {
-		System.out.println("TicketFlyOffersPage.doCheckout()");
-		Browser.wait("7000");
+		Browser.wait("5000");
+		Browser.click("xpath=.//*[@id='offersSection']/footer/div/input");
 		Browser.switchToPopUpByTitle("Login");
 		Browser.sendKeys("xpath=.//*[@id='email']", "sample@sample.com");
 		Browser.sendKeys("xpath=.//*[@id='password']", "sample");

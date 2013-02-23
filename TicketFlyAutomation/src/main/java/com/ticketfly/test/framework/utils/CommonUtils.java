@@ -26,8 +26,15 @@ public class CommonUtils {
 	public static final String ENCODING = "UTF-8";
 	public static final String EOL = System.getProperty("line.separator");
 	private static final String CONFIG_PROPERTY_FILE_PATH = "src/test/resources/config.properties";
-	public static final String BASE_PATH = "src/main/resources/data/objectdata/";
 
+	/**
+	 * Method to retun a random number within a given range. 
+	 */
+	public static int getRandomNumber(int minimum, int maximum){
+		int randomNum;
+		randomNum = minimum + (int) (Math.random() * maximum);
+		return randomNum;
+	}
 	/**
 	 * This method is used to parse the CDATA text
 	 * 
