@@ -51,8 +51,6 @@ public class BrowserFactory {
 					browser = loadIEDriver(isRemoteRun);
 				} else if ("chrome".equalsIgnoreCase(browserName)) {
 					browser = loadChromeDriver(isRemoteRun);
-				} else if ("android".equalsIgnoreCase(browserName)) {
-					browser = loadAndroidDriver(isRemoteRun);
 				}
 
 			} catch (Exception exception) {
@@ -210,43 +208,6 @@ public class BrowserFactory {
 			}
 			remoteDriver = new ChromeDriver();
 			log.info("loading Generic Chrome driver successful");
-		}
-
-		log.info("Exiting BrowserFactory class loadChromeDriver...");
-
-		return remoteDriver;
-
-	}
-
-	/**
-	 * private method to load the Andriod Driver
-	 * 
-	 * @param loadRemote
-	 * 
-	 */
-	private static RemoteWebDriver loadAndroidDriver(boolean loadRemote)
-			throws Exception {
-
-		log.info("Entering BrowserFactory class loadAndroidDriver...");
-
-		RemoteWebDriver remoteDriver = null;
-		DesiredCapabilities capabilities = DesiredCapabilities.android();
-
-		if (loadRemote) {
-
-			log.info("loading Android driver in remote");
-			log.info("Loading  Remote Run URL "
-					+ CommonUtils.readFromConfig("RemoteWebAppUrl"));
-			URL url = new URL(CommonUtils.readFromConfig("RemoteWebAppUrl"));
-			remoteDriver = new RemoteWebDriver(url, capabilities);
-			log.info("loading Android driver in remote successful");
-
-		}
-
-		else {
-			log.info("loading Generic Android driver");
-			remoteDriver = new AndroidDriver();
-			log.info("loading Generic Android driver successful");
 		}
 
 		log.info("Exiting BrowserFactory class loadChromeDriver...");
