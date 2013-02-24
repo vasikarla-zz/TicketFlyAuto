@@ -1,10 +1,7 @@
 package com.ticketfly.base;
 
-import java.lang.reflect.Method;
-
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;

@@ -4,7 +4,6 @@ public class TestConstants {
 
 	public TestConstants() {
 	}
-
 	public static final long WAIT_SLEEP = 5;
 	public static final long MINI_WAIT = 5;
 	public static final long SHORT_WAIT = 15;
@@ -18,5 +17,4 @@ public class TestConstants {
 	public static final String SELECT_BY_INDEX = "index";
 	public static final String SELECT_BY_VISIBLE_TEXT = "visibleText";
 	public static final String DESELECT_ALL = "deselectAll";
-
 }

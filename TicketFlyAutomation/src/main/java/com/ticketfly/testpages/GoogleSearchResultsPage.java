@@ -25,7 +25,7 @@ public class GoogleSearchResultsPage {
 	 */
 	public boolean selectFromSearchResults(int Result) throws InterruptedException {
 		String selectSearchRes = null;
-		if (Result <= 1) {
+		if (Result >= 1) {
 			log.info("Selecting Search Result No :" + Result);
 			browser.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			selectSearchRes = "//*[@id=\"rso\"]/li[" + Result

@@ -1,11 +1,9 @@
 package com.ticketfly.tests.smokes;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.ticketfly.base.BaseTestCase;
-import com.ticketfly.base.BrowserFactory;
 import com.ticketfly.testpages.GoogleHomePage;
 import com.ticketfly.testpages.GoogleSearchResultsPage;
 import com.ticketfly.testpages.TicketFlyDeliveryPage;
@@ -16,7 +14,6 @@ import com.ticketfly.testpages.TicketFlyPurchasePage;
 import com.ticketfly.testpages.TicketFlySearchResultsPage;
 
 public class TicketFlySampleTestCase extends BaseTestCase {
-	private static WebDriver browser = BrowserFactory.getBrowser();
 	public static GoogleHomePage googleHomePage = new GoogleHomePage();
 	public static GoogleSearchResultsPage googleSearchResultsPage = new GoogleSearchResultsPage();
 	public static TicketFlyHomePage ticketflyHomePage = new TicketFlyHomePage();
