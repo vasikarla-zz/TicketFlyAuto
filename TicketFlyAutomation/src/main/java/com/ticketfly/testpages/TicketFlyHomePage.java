@@ -23,6 +23,7 @@ public class TicketFlyHomePage {
 		log.info("Entering findEvent Method with Input : " + event);
 		browser.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		if ((!event.equals("")) && (!event.equals(null))) {
+			Thread.sleep(3000);
 			browser.findElement(By.cssSelector("#q")).sendKeys(event);
 			browser.findElement(By.xpath("html/body/div[3]/div/form/fieldset/ol/button")).click();
 			log.info("Searching for the event :" + event);
