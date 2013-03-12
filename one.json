@@ -1,0 +1,15 @@
+{
+  "type": "script",
+  "seleniumVersion": "2",
+  "formatVersion": 1,
+  "steps": [
+    {
+      "type": "get",
+      "url": "http://www.google.com/"
+    },
+    {
+      "type": "verifyTextPresent",
+      "text": "Search Results Sample (statistics) - Wikipedia, the free encyclopediaen.wikipedia.org/wiki/Sample_(statistics)Cached - SimilarYou +1'd this publicly. UndoIn statistics, a sample is a set of observations"
+    }
+  ]
+}
